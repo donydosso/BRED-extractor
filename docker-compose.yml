@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8443:8443"
+    volumes:
+      - ./go/certs:/app/certs:ro
+      - ./frontend:/app/frontend:ro
+      - ./python:/app/python:ro
+      - data_volume:/app/tmp
+    environment:
+      - PYTHONPATH=/app/python
+    restart: unless-stopped
+
+volumes:
+  data_volume:

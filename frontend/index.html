@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyseur de Relevés Bancaires BRED</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Analyseur de Relevés Bancaires BRED</h1>
+            <p>Téléchargez votre relevé bancaire PDF pour extraire les transactions, agios et frais</p>
+        </header>
+        
+        <div class="upload-area" id="dropArea">
+            <input type="file" id="fileInput" accept=".pdf" hidden>
+            <label for="fileInput" class="upload-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                Choisir un fichier PDF
+            </label>
+            <span class="drag-text">ou glissez-déposez ici</span>
+            <div class="file-info" id="fileInfo">Aucun fichier sélectionné</div>
+        </div>
+        
+        <button id="processBtn" class="btn" disabled>
+            <span id="btnText">Analyser le PDF</span>
+            <span id="spinner" class="spinner" style="display: none;"></span>
+        </button>
+        
+        <div class="tabs" id="tabs" style="display: none;">
+            <button class="tab-btn active" data-tab="compte">Compte Principal</button>
+            <button class="tab-btn" data-tab="agios">Agios</button>
+            <button class="tab-btn" data-tab="frais">Frais & Commissions</button>
+        </div>
+        
+        <div class="preview-section" id="previewSection" style="display: none;">
+            <div class="table-container">
+                <table id="previewTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Libellé</th>
+                            <th>Débit</th>
+                            <th>Crédit</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            
+            <div class="summary" id="summarySection">
+                <div class="summary-card">
+                    <h3>Solde Initial</h3>
+                    <p id="soldeInitial">0,00 €</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Solde Final</h3>
+                    <p id="soldeFinal">0,00 €</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Total Débits</h3>
+                    <p id="totalDebits">0,00 €</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Total Crédits</h3>
+                    <p id="totalCredits">0,00 €</p>
+                </div>
+            </div>
+            
+            <button id="downloadBtn" class="btn download-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Télécharger le Rapport Excel
+            </button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

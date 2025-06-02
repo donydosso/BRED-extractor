@@ -1,0 +1,39 @@
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+vendor/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Node (si un jour tu ajoutes du JS avec npm)
+node_modules/
+npm-debug.log
+
+# Frontend build (si tu ajoutes un build tool)
+dist/
+build/
+
+# Cache / système
+.DS_Store
+*.log
+
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile*
+docker-compose.yml
+
+# Temp files
+go/temp/*
+!go/temp/.keep
