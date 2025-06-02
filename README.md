@@ -92,7 +92,3 @@ BRED-extractor/
 ## Contributions
 
 Les contributions sont les bienvenues ! N'hésitez pas à forker le projet, créer une branche, apporter vos modifications et soumettre une pull request.
-
-## Licence
-
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus d'informations.
